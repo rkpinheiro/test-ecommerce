@@ -54,6 +54,13 @@
                 <form id="clear-cart-form" action="{{ route('clear-cart') }}" method="POST" style="display: none;">
                     {{ csrf_field() }}
                 </form>
+                <a class="btn btn-primary btn-lg" href="#"
+                   onclick="event.preventDefault();document.getElementById('buy-form').submit();">
+                    Buy
+                </a>
+                <form id="buy-form" action="{{ '#' }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
             @endif
         </div>
     </div>

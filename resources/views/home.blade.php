@@ -59,6 +59,13 @@
                     @endif
                 </div>
             </div>
+            <div class="row">
+                <div class="text-center">
+                    @if (! Auth::guest())
+                        <a class="btn btn-default btn-lg" href="{{route('store.products')}}">Go to products</a>
+                    @endif
+                </div>
+            </div>
         </div>
     </div>
 @endsection
