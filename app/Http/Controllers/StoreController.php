@@ -38,4 +38,11 @@ class StoreController extends Controller
         return view('payment')
             ->withCart($cart);
     }
+
+    public function clearCart(Request $request)
+    {
+        $request->session()->forget('cart');
+
+        return redirect()->route('store.payment');
+    }
 }
