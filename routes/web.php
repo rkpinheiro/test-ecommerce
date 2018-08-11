@@ -13,7 +13,7 @@
 
 Route::get('/', 'StoreController@index')->name('store.home');
 Route::get('/products', 'StoreController@products')->name('store.products');
-
+Route::middleware('auth')->post('/add-to-cart', 'StoreController@addToCart')->name('add-to-cart');
 
 //Auth::routes();
 

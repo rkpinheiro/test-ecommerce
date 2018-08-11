@@ -19,4 +19,16 @@ class StoreController extends Controller
         return view('products')
             ->withProducts($products);
     }
+
+    public function addToCart(Request $request)
+    {
+        $cart = json_decode($request->session()->get('cart'), true);
+        $product = Product::findOrFail($request->input('id'));
+        isset($cart[$product->id]) ?
+            $cart[$product->id]['amount']++ :
+            $cart[$product->id] = array_merge($product->toArray(), array('amount' => 1));
+        $cart = json_encode($cart);
+        $request->session()->put('cart', $cart);
+        return response()->json($cart);
+    }
 }

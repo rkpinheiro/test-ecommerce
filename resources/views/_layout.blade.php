@@ -73,6 +73,29 @@
     @yield('content')
 </div>
 
+<div id="notification" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Notification</h4>
+            </div>
+            <div class="modal-body">
+                <p class="dialog"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default button-close" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary button-success" data-redirect="#" onclick="
+                        var url = $(this).data('url');
+                        if (url) {
+                            window.location.href = url;
+                        }
+                    ">Save changes</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="{{asset('js/app.js')}}"></script>
