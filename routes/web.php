@@ -12,6 +12,8 @@
 */
 
 Route::get('/', 'StoreController@index')->name('store.home');
+Route::get('/products', 'StoreController@products')->name('store.products');
+
 
 //Auth::routes();
 
