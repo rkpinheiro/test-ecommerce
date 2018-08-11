@@ -64,7 +64,7 @@
                         </ul>
                     </li>
                 @endif
-                <li><a href="#">Cart</a></li>
+                <li><a href="{{route('store.payment')}}">Cart</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

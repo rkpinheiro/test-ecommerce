@@ -31,4 +31,11 @@ class StoreController extends Controller
         $request->session()->put('cart', $cart);
         return response()->json($cart);
     }
+
+    public function payment(Request $request)
+    {
+        $cart = json_decode($request->session()->get('cart'), true);
+        return view('payment')
+            ->withCart($cart);
+    }
 }
