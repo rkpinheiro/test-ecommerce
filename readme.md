@@ -24,6 +24,15 @@ execute composer install
     cd test-ecommerce
     composer install
 ```
+copy the .env
+```
+    cp .env.example .env
+```
+generate your key
+
+```
+    php artisan key:generate
+```
 
 execute the migrations and seeders
 ```
@@ -34,6 +43,8 @@ run the server
     php artisan serve
 ```
 and Have fun o/
+
+Obs: make sure that your database and mail configurations it's working correctly.
 
 ## License
 
