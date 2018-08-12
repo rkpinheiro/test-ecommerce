@@ -22,7 +22,7 @@ class ProductsTableSeeder extends Seeder
                 'id' => '1',
                 'name' => 'Product 1',
                 'price' => '10',
-                'created_at' => '1534000304028',
+                'created_at' => '2018-08-11 11:22:05',
                 'updated_at' => NULL,
             ),
             1 => 
@@ -30,7 +30,7 @@ class ProductsTableSeeder extends Seeder
                 'id' => '2',
                 'name' => 'Product 2',
                 'price' => '10',
-                'created_at' => '1534000304028',
+                'created_at' => '2018-08-11 11:22:05',
                 'updated_at' => NULL,
             ),
             2 => 
@@ -38,7 +38,7 @@ class ProductsTableSeeder extends Seeder
                 'id' => '3',
                 'name' => 'Product 3',
                 'price' => '10',
-                'created_at' => '1534000304028',
+                'created_at' => '2018-08-11 11:22:05',
                 'updated_at' => NULL,
             ),
             3 => 
@@ -46,7 +46,7 @@ class ProductsTableSeeder extends Seeder
                 'id' => '4',
                 'name' => 'Product 4',
                 'price' => '10',
-                'created_at' => '1534000304028',
+                'created_at' => '2018-08-11 11:22:05',
                 'updated_at' => NULL,
             ),
             4 => 
@@ -54,7 +54,7 @@ class ProductsTableSeeder extends Seeder
                 'id' => '5',
                 'name' => 'Product 5',
                 'price' => '10',
-                'created_at' => '1534000304028',
+                'created_at' => '2018-08-11 11:22:05',
                 'updated_at' => NULL,
             ),
         ));
