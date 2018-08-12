@@ -13,9 +13,12 @@
 
 Route::get('/', 'StoreController@index')->name('store.home');
 Route::get('/products', 'StoreController@products')->name('store.products');
-Route::middleware('auth')->post('/add-to-cart', 'StoreController@addToCart')->name('add-to-cart');
 Route::get('/payment', 'StoreController@payment')->name('store.payment');
+Route::middleware('auth')->get('/success', 'StoreController@success')->name('store.success');
+Route::middleware('auth')->post('/add-to-cart', 'StoreController@addToCart')->name('add-to-cart');
+Route::middleware('auth')->post('/checkout', 'StoreController@checkout')->name('checkout');
 Route::post('/clear-cart', 'StoreController@clearCart')->name('clear-cart');
+
 
 
 //Auth::routes();

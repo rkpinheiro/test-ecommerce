@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\OrderShipped;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StoreController extends Controller
 {
@@ -44,5 +46,22 @@ class StoreController extends Controller
         $request->session()->forget('cart');
 
         return redirect()->route('store.payment');
+    }
+
+    public function checkout(Request $request)
+    {
+        $request->session()->forget('cart');
+
+        event(new OrderShipped($request->user()));
+
+        return redirect()->route('store.success');
+    }
+
+    public function success()
+    {
+        $user = Auth::user();
+
+        return view('success')
+            ->withUser($user);
     }
 }

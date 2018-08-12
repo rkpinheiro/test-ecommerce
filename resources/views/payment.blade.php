@@ -58,7 +58,7 @@
                    onclick="event.preventDefault();document.getElementById('buy-form').submit();">
                     Buy
                 </a>
-                <form id="buy-form" action="{{ '#' }}" method="POST" style="display: none;">
+                <form id="buy-form" action="{{ route('checkout') }}" method="POST" style="display: none;">
                     {{ csrf_field() }}
                 </form>
             @endif
