@@ -1,10 +1,19 @@
+@inject('request', 'Illuminate\Http\Request' )
+
 @extends('_layout')
 
 @section('title', 'Payment')
 
 @section('content')
     <div class="page-header">
-        <h1>Payment</h1>
+        <h1>
+            <span>Payment</span>
+            <div class="pull-right">
+                <button type="button" class="btn btn-link set-currency" data-currency="USD">USD</button>
+                <button type="button" class="btn btn-link set-currency" data-currency="EUR">EUR</button>
+                <button type="button" class="btn btn-link set-currency" data-currency="BRL">BRL</button>
+            </div>
+        </h1>
     </div>
 
     <div class="row">
@@ -25,9 +34,17 @@
                 @foreach($cart as $product)
                     <tr>
                         <td>{{$product['name']}}</td>
-                        <td>${{ number_format($product['price'],2) }}</td>
+                        <td>
+                            {{
+                                currency(
+                                    $product['price'],
+                                    'USD',
+                                    $request->session()->get('user-currency') ? $request->session()->get('user-currency') : 'USD'
+                                )
+                            }}
+                        </td>
                         <td>{{$product['amount']}}</td>
-                        <td>{{number_format($product['price'] * $product['amount'], 2)}}</td>
+                        <td>{{currency($product['price'] * $product['amount'], 'USD', $request->session()->get('user-currency') ? $request->session()->get('user-currency') : 'USD') }}</td>
                     </tr>
                     @php
                         $total = $total + ($product['price'] * $product['amount']);
@@ -35,7 +52,9 @@
                 @endforeach
                 <tr>
                     <td colspan="3" class="text-right">Total</td>
-                    <td><b>${{number_format($total,2)}}</b></td>
+                    <td>
+                        <b>{{currency($total,'USD', $request->session()->get('user-currency') ? $request->session()->get('user-currency') : 'USD')}}</b>
+                    </td>
                 </tr>
                 </tbody>
             </table>

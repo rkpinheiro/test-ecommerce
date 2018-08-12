@@ -804,6 +804,16 @@ $('.add-to-cart').click(function () {
     });
 });
 
+$('.set-currency').click(function () {
+    var code = $(this).data('currency');
+    axios.post('/set-currency', { currency: code }).then(function () {
+        console.log('yeah!! currency ' + code + ' setted');
+        location.reload();
+    }).catch(function () {
+        console.log('No :( something wrong is happening');
+    });
+});
+
 /***/ }),
 /* 9 */
 /***/ (function(module, exports, __webpack_require__) {

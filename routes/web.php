@@ -18,6 +18,7 @@ Route::middleware('auth')->get('/success', 'StoreController@success')->name('sto
 Route::middleware('auth')->post('/add-to-cart', 'StoreController@addToCart')->name('add-to-cart');
 Route::middleware('auth')->post('/checkout', 'StoreController@checkout')->name('checkout');
 Route::post('/clear-cart', 'StoreController@clearCart')->name('clear-cart');
+Route::post('/set-currency', 'StoreController@setUserCurrency')->name('set-currency');
 
 
 

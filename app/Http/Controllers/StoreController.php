@@ -50,9 +50,9 @@ class StoreController extends Controller
 
     public function checkout(Request $request)
     {
-        $request->session()->forget('cart');
-
         event(new OrderShipped($request->user()));
+
+        $request->session()->forget('cart');
 
         return redirect()->route('store.success');
     }
@@ -63,5 +63,16 @@ class StoreController extends Controller
 
         return view('success')
             ->withUser($user);
+    }
+
+    public function setUserCurrency(Request $request)
+    {
+        $code = $request->input('currency');
+
+        $request->session()->put('user-currency', $code ? $code : 'USD');
+
+        currency()->setUserCurrency($code ? $code : 'USD');
+
+        return $code;
     }
 }
