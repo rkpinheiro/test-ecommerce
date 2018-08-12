@@ -168,6 +168,8 @@ return [
          */
         Laravel\Tinker\TinkerServiceProvider::class,
         \Torann\Currency\CurrencyServiceProvider::class,
+        Orangehill\Iseed\IseedServiceProvider::class,
+
 
         /*
          * Application Service Providers...
